@@ -1,0 +1,183 @@
+@import "../../../assets/variables";
+
+$cellPadding: 10px;
+$cellActionsWidth: 100px;
+
+.cell {
+    /* one item */
+    &:first-child:nth-last-child(1) {
+    /* -or- li:only-child { */
+        width: 100%;
+    }
+    
+    /* two items */
+    &:first-child:nth-last-child(2),
+    &:first-child:nth-last-child(2) ~ & {
+        max-width: calc(50% + (50% / 2));
+        width: 100%
+    }
+    
+    /* three items */
+    &:first-child:nth-last-child(3),
+    &:first-child:nth-last-child(3) ~ & {
+        max-width: calc(33.3333% + (33.3333% / 3));
+        width: 100%
+    }
+    
+    /* four items */
+    &:first-child:nth-last-child(4),
+    &:first-child:nth-last-child(4) ~ & {
+        max-width: calc(25% + (25% / 4));
+        width: 100%;
+    }
+
+    /* five items */
+    &:first-child:nth-last-child(5),
+    &:first-child:nth-last-child(5) ~ & {
+        max-width: calc(20% + (20% / 5));
+        width: 100%
+    }
+
+    /* six items */
+    &:first-child:nth-last-child(6),
+    &:first-child:nth-last-child(6) ~ & {
+        max-width: calc(16.6666% + (16.6666% / 6));
+        width: 100%
+
+    }
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    min-width: 500px;
+    border-radius: $mainBorderRadius;
+
+    &-header {
+        border-radius: $mainBorderRadius;
+        display: flex;
+        align-items: center;
+        background-color: $mainGreenColor;
+        font-weight: 500;
+
+        &-cell {
+            position: relative;
+            padding: $cellPadding;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .cell-title {
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+
+                .cell-search {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        width: 24px;
+                        height: 24px;
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            .cell-filter {
+                position: absolute;
+                width: 80%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+
+                &-close {
+                    position: absolute;
+                    right: -14px;
+                    color: $mainTextColor;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        width: 24px;
+                        height: 24px;
+                        background-color: transparent;
+                    }
+                }
+
+                input {
+                    width: 100%;
+                    border-radius: $mainBorderRadius;
+                    padding: 2px 10px;
+                    color: $mainGreenColor;
+                    outline: none;
+                    transition: outline 0.3s;
+
+                    &:focus {
+                        outline: 1px solid #929292;
+                    }
+                }
+
+                &.active {
+                    transform: translateY(0);
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &.actions {
+                width: $cellActionsWidth !important;
+                color: transparent;
+            }
+        }
+
+    }
+    &-body {
+        position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        height: 100%;
+        overflow-y: auto;
+
+        &-row {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+
+            &:nth-child(even) {
+                background-color: rgb(240, 240, 240);
+            }
+        }
+
+        &-cell {
+            padding: $cellPadding;
+            width: 200px;
+            text-align: center;
+            word-break: break-all;
+
+            &.actions {
+                cursor: pointer;
+                width: $cellActionsWidth !important;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+        }
+    }
+}

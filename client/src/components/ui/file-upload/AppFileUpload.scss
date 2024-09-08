@@ -1,0 +1,121 @@
+@import "../../../assets/variables";
+
+.app-file-upload {
+    width: 320px;
+
+    input {
+        display: none;
+    }
+
+    .file-btn {
+        width: 320px;
+        height: 150px;
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        border: 2px dashed $mainGreenColor;
+        border-radius: $mainBorderRadius;
+        background-color: white;
+        transition: all 0.3s;
+
+        &:hover {
+            color: $mainGreenColor;
+        }
+
+        i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: #d3e1c0;
+            border-radius: 50%;
+        }
+    }
+ 
+    &-card {
+        width: 320px;
+        display: flex;
+        align-items: center;
+        background-color: white;
+        border: 1px solid $mainGreenColor;
+        border-radius: $mainBorderRadius;
+        padding: 8px 16px;
+
+        i {
+            color: $mainGreenColor;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        i.close {
+            color: $mainTextColor;
+            cursor: pointer;
+            position: relative;
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #d3e1c0;
+        }
+
+        &-info {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            &-name {
+                word-break: break-all;
+                font-weight: 600;
+                flex: 1;
+                overflow: hidden;
+                display: -webkit-box; 
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+
+            &-progress-bg {
+                width: 100%;
+                height: 5px;
+                background-color: rgba($color: #000000, $alpha: 0.076);
+                border-radius: 20px;
+                margin-top: 8px;
+            }
+
+
+        }
+    }
+
+
+    .progress {
+        width: 0%;
+        height: 5px;
+        background-color: $mainGreenColor;
+        border-radius: 20px;
+    }
+
+    .upload {
+        margin-top: 10px;
+        width: 320px;
+        padding: 4px 12px;
+
+        word-break: break-all;
+        overflow: hidden;
+        display: -webkit-box; 
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+
+        // &[data-file-loaded="true"] {
+        //     display: none;
+        // }
+    }
+}

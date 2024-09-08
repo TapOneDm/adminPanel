@@ -1,0 +1,66 @@
+@import "../../../assets/variables";
+
+.modal-wrapper {
+    position: fixed;
+    z-index: 999999;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: appear;
+    animation-duration: 0.4s;
+
+    .modal {
+        background-color: white;
+        padding: 20px;
+        border-radius: $mainBorderRadius;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        &-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            font-size: 20px;
+        }
+
+        &-text {
+            text-align: center;
+        }
+
+        &-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+
+            button {
+                width: 120px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+
+                i {
+                    margin-top: 4px;
+                }
+            }
+        }
+
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,56 @@
+@import "../../../assets/variables";
+
+.button {
+    position: relative;
+    padding: 8px 12px;
+    background-color: $mainGreenColor;
+    width: fit-content;
+    border-radius: $mainBorderRadius;
+    color: $mainTextColor;
+    font-size: 16px;
+    transition: background 0.3s;
+
+    i {
+        margin-right: 6px;
+    }
+
+    &:hover {
+        background: darken($color: $mainGreenColor, $amount: 10);
+    }
+
+    &:active {
+        background: darken($color: $mainGreenColor, $amount: 20);
+    }
+
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.7;
+    }
+
+    &-spinner {
+        display: none;
+    }
+
+    &.loading {
+        pointer-events: none;
+        background: rgba($color: $mainGreenColor, $alpha: 0.5);
+        color: $disabledTextColor;
+
+        .button-spinner {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-animation: rotating 2s linear infinite;
+            -moz-animation: rotating 2s linear infinite;
+            -ms-animation: rotating 2s linear infinite;
+            -o-animation: rotating 2s linear infinite;
+            animation: rotating 2s linear infinite;
+
+            i {
+                font-weight: bold;
+                color: black;
+            }
+        }
+    }
+}

@@ -1,0 +1,94 @@
+@import "../../../assets/variables";
+
+.app-select {
+    width: fit-content;
+    min-width: 200px;
+    
+    .app-select__control {
+        padding: 4px 10px;
+        border: 1px solid $mainGreenColor;
+        border-radius: $mainBorderRadius;
+        transition: all 0.3s;
+        min-height: unset;
+        height: 36px;
+
+        .app-select__value-container {
+            padding: 0;
+            gap: 6px;
+
+            .app-select__multi-value {
+                padding: 1px;
+                border-radius: $mainBorderRadius;
+                background-color: $mainGreenColor;
+
+                .app-select__multi-value__label {
+                    color: $mainTextColor;
+                }
+
+                .app-select__multi-value__remove {
+                    cursor: pointer;
+
+                    svg {
+                        fill: $mainTextColor;
+                    }
+
+                    &:hover {
+                        background-color: inherit;
+                    }
+                }
+            }
+        }
+
+        .app-select__indicators {
+
+            .app-select__indicator {
+                cursor: pointer;
+                padding: 0;
+
+                svg {
+                    fill: $mainGreenColor;
+                }
+            }
+
+            .app-select__indicator-separator {
+                display: none;
+            }
+        }
+    }
+
+    .app-select__menu {
+        border-radius: $mainBorderRadius;
+        border: 1px solid $mainGreenColor;
+        animation: appear 0.2s ease-in-out;
+
+        .app-select__option {
+            cursor: pointer;
+            margin: 0;
+            background-color: transparent;
+            transition: background 0.2s ease;
+            
+            &:hover {
+                background: $mainGreenColor;
+            }
+        }
+    }
+}
+
+.app-select .app-select__control.app-select__control--is-focused {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px $mainGreenColor;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,70 @@
+@import "../../assets/variables";
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 0;
+    margin: 0 16px;
+
+    .header-search {
+        position: relative;
+        display: flex;
+        max-width: 740px;
+        width: 100%;
+        margin-right: 40px;
+
+        input {
+            flex: 1;
+            display: block;
+            border: 1px solid $headerSearchInputBorderColor;
+            background-color: $headerSearchInputColor;
+            height: 100%;
+            font-size: $headerSearchInputFontSize;
+            border-radius: $mainBorderRadius;
+            padding: 12px 20px 12px 52px;
+            transition: border 0.3s;
+
+            &:focus {
+                border-color: $mainGreenColor;
+            }
+        }
+
+        i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: $mainTextColor;
+        }
+    }
+
+    .header-user {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        .header-user-info {
+            display: flex;
+            flex-direction: column;
+
+            .header-user-role {
+                margin-top: 4px;
+                font-size: 14px;
+                color: $lightTextColor;
+            }
+        }
+
+        .header-user-notification {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $lightGrayColor;
+        }
+    }
+}

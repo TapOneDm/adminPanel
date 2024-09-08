@@ -1,0 +1,17 @@
+@import "../../../assets/variables";
+
+.app-input {
+    display: block;
+    height: 36px;
+    font-size: 16px;
+    padding: 6px 10px;
+    border: 1px solid $mainGreenColor;
+    border-radius: $mainBorderRadius;
+    transition: all 0.3s;
+
+    &:focus {
+        border-color: transparent;
+        box-shadow: 0 0 0 2px $mainGreenColor;
+    }
+}
+
